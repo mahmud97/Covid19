@@ -1,0 +1,28 @@
+﻿@model Covid19Web.Solution.Models.Contry
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .dtl {
+        margin-bottom: 50px;
+        margin-left: 450px;
+    }
+    .fontstyle {
+        font-weight: bold;
+    }
+    </style>
+<h2 style="margin-top:50px;margin-left:450px;" class="fontstyle">Country Details</h2>
+<hr>
+
+<div class="dtl fontstyle">
+
+    <p>Country : @Model.Country</p>
+    <p>New Cases : @Model.NewConfirmed</p>
+    <p>Total Cases : @Model.TotalConfirmed</p>
+    <p>New Deaths : @Model.NewDeaths</p>
+    <p>Total Deaths: @Model.TotalDeaths</p>
+    <p>New Recovered :@Model.NewRecovered</p>
+    <p>Total Recovered: @Model.TotalRecovered</p>
+</div>
