@@ -14,9 +14,8 @@ namespace Covid19Web.Solution.Controllers
     {
         public ActionResult Covid19Update()
         {
-            var ob = new Result();
-            ob = GetCovid19Data();
-            //ViewBag.Color = "#fc0b03";
+            
+            var ob = GetCovid19Data();
             return View(ob);
         }
 
@@ -26,23 +25,21 @@ namespace Covid19Web.Solution.Controllers
                 return HttpNotFound();
             
             var ob = GetCovid19Data();
+            var result = ob.Countries.SingleOrDefault(c=>c.Country.Equals(uniqueIdentifier));
 
-            var result = new Contry();
-            foreach(var item in ob.Countries)
-            {
-                if (item.Country.Equals(uniqueIdentifier))
-                {
-                    result = item;
-                }
-            }
+            //foreach(var item in ob.Countries)
+            //{
+            //    if (item.Country.Equals(uniqueIdentifier))
+            //    {
+            //        result = item;
+            //    }
+            //}
             return View("Details",result);
 
         }
         public static Result GetCovid19Data()
         {
             var ob = new Result();
-            string LogFolder = @"C:\Users\admin\Desktop";
-            string datetime = DateTime.Now.ToString("yyyy-MM-dd");
             try
             {
 
@@ -64,12 +61,7 @@ namespace Covid19Web.Solution.Controllers
             catch (Exception exception)
             {
 
-                //using (StreamWriter sw = File.CreateText(LogFolder
-                //    + "\\" + "ErrorLog_" + datetime + ".log"))
-                //{
-                //    sw.WriteLine(exception.ToString());
-
-                //}
+                throw exception;
 
             }
             return ob;

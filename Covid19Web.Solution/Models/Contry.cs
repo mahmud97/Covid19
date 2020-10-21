@@ -25,10 +25,7 @@ namespace Covid19Web.Solution.Models
     }
     public class Result
     {
-
         public List<Contry> Countries { get; set; }
-
-
     }
 
 }
